@@ -21,8 +21,8 @@ public class RotaPedidosXPath {
 							xpath("item/formato[text()='EBOOK']").
 						log("${id} - ${body}").
 						//noext faz com que o arquivo não fique com a extensão xml
-						//setHeader("camelFileName", simple("${file:name.noext}.json")).
-					to("file:saida");
+						setHeader("camelFileName", simple("${file:name.noext}.json")).
+					to("http4://localhost:8080/webservices/ebook/item");
 				}			
 		
 		});	
